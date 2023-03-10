@@ -1,1 +1,3 @@
-*.jpg  binary
+*.jpg    binary
+*.pcapng binary
+*.pptx   binary

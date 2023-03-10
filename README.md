@@ -1,5 +1,32 @@
 # 230306-AD-Troubleshooting-Workshop
 
+- [230306-AD-Troubleshooting-Workshop](#230306-ad-troubleshooting-workshop)
+  - [Useful Tools](#useful-tools)
+    - [AutomatdLab](#automatdlab)
+    - [ActiveDirectoryManagementFramework (ADMF)](#activedirectorymanagementframework-admf)
+    - [LdapTools](#ldaptools)
+    - [GPOTools](#gpotools)
+    - [NTFSSecurity](#ntfssecurity)
+    - [Kerberos.NET](#kerberosnet)
+  - [Notes done during the workshop](#notes-done-during-the-workshop)
+    - [NTLM](#ntlm)
+      - [LMCompatibilityLevel - The Most Misunderstood Windows Security Setting of All Time](#lmcompatibilitylevel---the-most-misunderstood-windows-security-setting-of-all-time)
+    - [Kerberos](#kerberos)
+      - [Slides](#slides)
+      - [Time skew](#time-skew)
+      - [Get all Kerberos tickets from all logon sessions](#get-all-kerberos-tickets-from-all-logon-sessions)
+      - [Extend Eventlog Entries in PowerShel for working with the actual event data](#extend-eventlog-entries-in-powershel-for-working-with-the-actual-event-data)
+    - [AD and AD Replication](#ad-and-ad-replication)
+      - [Read Active Directory Replication Metadata](#read-active-directory-replication-metadata)
+      - [List all replication site links that do not have a schedule](#list-all-replication-site-links-that-do-not-have-a-schedule)
+      - [Add a group membership if a time-to-live](#add-a-group-membership-if-a-time-to-live)
+      - [Get all objects created after a certain time](#get-all-objects-created-after-a-certain-time)
+      - [How does Active Directory manage the passwords on trust objects?](#how-does-active-directory-manage-the-passwords-on-trust-objects)
+  - [PowerShell Desired State Configuration](#powershell-desired-state-configuration)
+  - [PowerShell](#powershell)
+    - [Win32 functions / DllImport](#win32-functions--dllimport)
+
+
 ## Useful Tools
 
 ### [AutomatdLab](https://automatedlab.org/)
@@ -34,9 +61,13 @@ A complete Kerberos library for (KDC and Kerberos client) built entirely in mana
 
 #### LMCompatibilityLevel - The Most Misunderstood Windows Security Setting of All Time
 
+An interesting read about the LMCompatibilityLevel setting: [The Most Misunderstood Windows Security Setting of All Time](https://learn.microsoft.com/en-us/previous-versions/technet-magazine/cc160954(v=msdn.10)).
+
 ### Kerberos
 
-An interesting read about the LMCompatibilityLevel setting: [The Most Misunderstood Windows Security Setting of All Time](https://learn.microsoft.com/en-us/previous-versions/technet-magazine/cc160954(v=msdn.10)).
+#### Slides
+
+The slides of the Kerberos part are available [here](Assets/Kerberos%20101%20V3.pptx)
 
 #### Time skew
 
@@ -208,6 +239,8 @@ Start-DscConfiguration -Path C:\DSC -Wait -Verbose
 If you are interested more in this technology, please have a look at the project [DscWorkshop](https://github.com/dsccommunity/DscWorkshop).
 
 ## PowerShell
+
+### Win32 functions / DllImport
 
 Using `DllImport` to access Win32 function from PowerShell or C#. A good resource to start is [pinvoke.net](http://pinvoke.net/index.aspx). From there we used the sample code for [DsGetDcName](http://pinvoke.net/default.aspx/netapi32/DsGetDcName.html) and translated it into PowerShell.
 
